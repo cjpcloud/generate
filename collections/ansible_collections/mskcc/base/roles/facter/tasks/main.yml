@@ -1,0 +1,30 @@
+---
+# tasks file for facter
+
+- name: ensure /etc/facter/facts.d
+  file:
+    path: /etc/facter/facts.d
+    state: directory
+    recurse: yes
+
+- name: copy facter scripts
+  copy:
+    src: "{{ item }}"
+    dest: /etc/facter/facts.d/
+    mode: '0755'
+  loop:
+    - mskcc-facter.sh
+    - mskcc-environment.sh
+
+- name: create fact files dir
+  file:
+    path: /etc/mskcc.d
+    state: directory
+
+- name: copy fact files
+  copy:
+    src: "{{ item }}"
+    dest: /etc/mskcc.d/
+  loop:
+    - role
+    - zone

@@ -1,0 +1,17 @@
+---
+- name: include os-specific veriables
+  include_vars: "{{ ansible_os_family }}-{{ ansible_distribution_major_version }}.yml"
+
+- name: ensure ntp package is installed
+  yum:
+    name: "{{ ntp_package }}"
+    state: present
+
+- name: ensure configuration is present
+  template:
+    src: "{{ ntp_config_file }}"
+    dest: "{{ ntp_config_dest }}"
+    group: root
+    owner: root
+    mode: "0400"
+  notify: restart_ntp

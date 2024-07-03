@@ -1,0 +1,38 @@
+- name: Ensure AIDE is installed
+  package:
+    name: '{{ item }}'
+    state: present
+  with_items:
+  - aide
+  when: ansible_virtualization_type not in ["docker", "lxc", "openvz", "podman", "container"]
+
+    #- name: Build and Test AIDE Database
+    # command: aide --init
+    #changed_when: true
+    #when: ansible_virtualization_type not in ["docker", "lxc", "openvz", "podman", "container"]
+
+- name: Check whether the stock AIDE Database exists
+  stat:
+    path: /var/lib/aide/aide.db.new.gz
+  register: aide_database_stat
+  when: ansible_virtualization_type not in ["docker", "lxc", "openvz", "podman", "container"]
+
+- name: Stage AIDE Database
+  copy:
+    src: /var/lib/aide/aide.db.new.gz
+    dest: /var/lib/aide/aide.db.gz
+    backup: true
+    remote_src: true
+  when:
+  - ansible_virtualization_type not in ["docker", "lxc", "openvz", "podman", "container"]
+  - (aide_database_stat.stat.exists is defined and aide_database_stat.stat.exists)
+
+- name: Configure Periodic Execution of AIDE
+  cron:
+    name: run AIDE check
+    minute: 5
+    hour: 4
+    weekday: 0
+    user: root
+    job: /usr/sbin/aide --check
+  when: ansible_virtualization_type not in ["docker", "lxc", "openvz", "podman", "container"]

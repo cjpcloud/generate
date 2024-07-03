@@ -1,0 +1,25 @@
+---
+- name: include os-specific veriables
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- name: ensure ssh package is installed
+  yum:
+    name: "{{ ssh_package }}"
+    state: present
+
+- name: ensure configuration is present
+  template:
+    src: sshd_config.j2
+    dest: "/etc/ssh/sshd_config"
+    group: root
+    owner: root
+    mode: "0600"
+  notify: reload_ssh
+
+- name: ensure ssh motd present
+  copy:
+    src: motd
+    dest: "/etc/ssh_motd"
+    group: root
+    owner: root
+    mode: "0644"

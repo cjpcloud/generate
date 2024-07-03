@@ -1,0 +1,27 @@
+puppet modules to implements as roles
+
+- snmp
+- truesight
+- autotimeout (bash_profile?)
+- centrify
+- emcgrab (physical only, low priority)
+- facts (discuss still needing this)
+- falcon-sensor
+- motd
+- networkmanager
+- patrol (started)
+- pwpolicy
+- repokeys
+- packages
+- root
+- routes
+- sailpoint (role)
+- securetty
+- service-accounts
+- smtp (in use?)
+- sudo (started)
+- syslog
+- sysop (needed?)
+- thycotic managed pw
+- tuned (physicals only?)
+- users (dmz?)

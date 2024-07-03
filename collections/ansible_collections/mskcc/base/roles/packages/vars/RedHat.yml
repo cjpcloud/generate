@@ -1,0 +1,27 @@
+---
+packages:
+  - bash-completion
+  - bind-utils
+  - expect
+  - gcc
+  - gdisk
+  - glibc
+  - glibc-devel
+  - glibc.i686
+  - kernel-headers
+  - kexec-tools
+  - lsof
+  - mlocate
+  - nc
+  - net-snmp
+  - net-snmp-utils
+  - net-tools
+  - nfs-utils
+  - ntp
+  - openssl
+  - openssl-devel
+  - psmisc
+  - tcpdump
+  - tmux
+  - wget
+  - whois

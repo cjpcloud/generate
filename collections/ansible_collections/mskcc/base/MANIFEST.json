@@ -1,0 +1,30 @@
+{
+ "collection_info": {
+  "namespace": "mskcc",
+  "name": "base",
+  "version": "1.0.0",
+  "authors": [
+   "Jordan Pisaniello <pisaniej@mskcc.org>"
+  ],
+  "readme": "README.md",
+  "tags": [],
+  "description": "your collection description",
+  "license": [
+   "GPL-2.0-or-later"
+  ],
+  "license_file": null,
+  "dependencies": {},
+  "repository": "http://example.com/repository",
+  "documentation": "http://docs.example.com",
+  "homepage": "http://example.com",
+  "issues": "http://example.com/issue/tracker"
+ },
+ "file_manifest_file": {
+  "name": "FILES.json",
+  "ftype": "file",
+  "chksum_type": "sha256",
+  "chksum_sha256": "45137e185b1a97af5a69104a80cc910f2c795e02d3ae0acaefc655a1ce72b914",
+  "format": 1
+ },
+ "format": 1
+}

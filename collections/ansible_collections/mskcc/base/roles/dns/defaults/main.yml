@@ -1,0 +1,8 @@
+---
+# defaults file for dns
+search:
+  - "mskcc.org"
+  - "mskcc.root.mskcc.org"
+nameservers:
+  - "140.163.20.252"
+  - "140.163.9.252"

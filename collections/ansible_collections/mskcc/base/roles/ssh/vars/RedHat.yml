@@ -1,0 +1,5 @@
+ssh_package: openssh-server
+ssh_service: sshd
+X11Forwarding: "yes"
+PermitRootLogin: "no"
+PubkeyAuthentication: "yes"

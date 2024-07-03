@@ -1,0 +1,44 @@
+---
+- name: ensure patrol package is installed
+  package:
+    name: mskcc-patrol
+    state: present
+
+- name: patrol group
+  group:
+    name: patrol
+    state: present
+    gid: '2040'
+
+- name: patrol user
+  user:
+    state: present
+    name: patrol
+    uid: 2040
+    shell: /bin/bash
+    group: 2040
+    comment: "Patrol User"
+    home: /opt/patrol
+    password_expire_max: 99999
+    password_expire_min: 0
+
+- name: patrol home dir
+  file:
+    path: /opt/patrol
+    state: directory
+    group: patrol
+    owner: patrol
+    mode: '0755'
+
+- name: patrol bash config
+  copy:
+    src: patrol_bash_profile
+    dest: /opt/patrol/.bash_profile
+    group: patrol
+    owner: patrol
+    mode: 0755
+
+- name: ensure patrol is running
+  service:
+    name: patrol
+    state: started

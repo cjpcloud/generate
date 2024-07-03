@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  tasks:
+    - name: create file
+      shell: touch /opt/packer123
+  roles:
+    - role: collections/ansible_collections/mskcc/base/roles/cis

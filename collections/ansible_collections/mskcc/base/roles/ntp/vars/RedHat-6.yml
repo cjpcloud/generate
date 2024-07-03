@@ -1,0 +1,5 @@
+ntp_package: ntp
+ntp_service: ntpd
+ntp_server: timeserver.mskcc.org
+ntp_config_file: ntp.conf.j2
+ntp_config_dest: /etc/ntp.conf

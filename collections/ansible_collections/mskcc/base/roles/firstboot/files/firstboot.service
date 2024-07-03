@@ -1,0 +1,11 @@
+[Unit]
+Description=One time boot script
+
+[Service]
+Type=simple
+ExecStart=/root/firstboot.sh
+StandardOutput=file:/root/.firstboot.log
+StandardError=file:/root/.firstboot.log
+
+[Install]
+WantedBy=network-online.target

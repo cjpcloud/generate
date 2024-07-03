@@ -1,0 +1,5 @@
+---
+# defaults file for ssh
+X11Forwarding: "yes"
+PermiteRootLogin: "no"
+PubkeyAuthentication: "yes"

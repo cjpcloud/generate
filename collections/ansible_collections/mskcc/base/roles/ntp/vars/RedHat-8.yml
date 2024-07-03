@@ -1,0 +1,5 @@
+ntp_package: chrony
+ntp_service: chronyd
+ntp_server: timeserver.mskcc.org
+ntp_config_file: "chrony.conf.j2"
+ntp_config_dest: /etc/chrony.conf

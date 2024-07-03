@@ -1,0 +1,21 @@
+Protocol 2
+SyslogFacility AUTHPRIV
+HostKey /etc/ssh/ssh_host_rsa_key
+PasswordAuthentication yes
+ChallengeResponseAuthentication no
+GSSAPIAuthentication yes
+GSSAPICleanupCredentials yes
+UsePAM yes
+AcceptEnv LANG LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES
+AcceptEnv LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT
+AcceptEnv LC_IDENTIFICATION LC_ALL LANGUAGE
+AcceptEnv XMODIFIERS
+X11Forwarding {{ X11Forwarding }}
+UseDNS no
+Subsystem sftp  /usr/libexec/openssh/sftp-server
+PermitRootLogin {{ PermitRootLogin }}
+Banner /etc/ssh_motd
+PermitEmptyPasswords no
+UsePrivilegeSeparation sandbox
+PubkeyAuthentication {{ PubkeyAuthentication }}
+KexAlgorithms diffie-hellman-group14-sha1,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group-exchange-sha256,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,curve25519-sha256,curve25519-sha256@libssh.org,gss-gex-sha1-,gss-group1-sha1-,gss-group14-sha1-

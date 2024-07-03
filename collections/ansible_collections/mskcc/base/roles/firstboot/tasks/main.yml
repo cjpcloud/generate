@@ -1,0 +1,17 @@
+---
+# tasks file for firstboot
+- name: copy firstboot service
+  copy:
+    src: firstboot.service
+    dest: /etc/systemd/system/firstboot.service
+
+- name: copy first boot script
+  copy:
+    src: firstboot.sh
+    dest: /root/firstboot.sh
+    mode: u+x
+
+- name: start firstboot service
+  systemd:
+    name: firstboot
+    enabled: yes

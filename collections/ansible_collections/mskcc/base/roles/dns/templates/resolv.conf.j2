@@ -1,0 +1,5 @@
+# MANAGED BY ANSIBLE
+search {{ search | join(' ') }}
+{% for ns in nameservers %}
+nameserver {{ ns }}
+{% endfor %}
